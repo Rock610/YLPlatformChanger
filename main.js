@@ -61,11 +61,17 @@ function transferAppIcon(type){
 	var xhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xhdpi/yl_launcher1.png";
 
 
-	var xxhdpiDst = drawablePath+"/drawable-xxhdpi/yl_launcher1.png";
-	var xhdpiDst = drawablePath+"/drawable-xhdpi/yl_launcher1.png";
+	var xxhdpiDst = drawablePath+"/mipmap-xxhdpi/yl_launcher1.png";
+	var xhdpiDst = drawablePath+"/mipmap-xhdpi/yl_launcher1.png";
+
+	var xxhdpiDstDrawable = drawablePath+"/drawable-xxhdpi/yl_launcher1.png";
+	var xhdpiDstDrawable = drawablePath+"/drawable-xhdpi/yl_launcher1.png";
 
 	copy(xxhdpiSrc,xxhdpiDst);
 	copy(xhdpiSrc,xhdpiDst);
+
+	copy(xxhdpiSrc,xxhdpiDstDrawable);
+	copy(xhdpiSrc,xhdpiDstDrawable);
 }
 
 
