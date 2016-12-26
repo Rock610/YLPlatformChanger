@@ -57,12 +57,12 @@ function transferLogo(type){
 function transferAppIcon(type){
 	var partOfPlatform = type+"_LOGO";
 
-	var xxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxhdpi/yl_launcher.png";
-	var xhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xhdpi/yl_launcher.png";
+	var xxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxhdpi/yl_launcher1.png";
+	var xhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xhdpi/yl_launcher1.png";
 
 
-	var xxhdpiDst = drawablePath+"/drawable-xxhdpi/yl_launcher.png";
-	var xhdpiDst = drawablePath+"/drawable-xhdpi/yl_launcher.png";
+	var xxhdpiDst = drawablePath+"/drawable-xxhdpi/yl_launcher1.png";
+	var xhdpiDst = drawablePath+"/drawable-xhdpi/yl_launcher1.png";
 
 	copy(xxhdpiSrc,xxhdpiDst);
 	copy(xhdpiSrc,xhdpiDst);
@@ -137,6 +137,9 @@ function getPackageName(){
   		case "fxzs":
   			packageName = "com.wdwd.entdemo";
   			break;
+		case "ztbest":
+			packageName = "com.wdwd.ztbest";
+			break;
   	}
 
   	return packageName;
@@ -157,6 +160,8 @@ function getLastType(){
 		return "bn";
 	}else if(lastPackageName.indexOf("entdemo") > -1){
 		return "fxzs";
+	}else if(lastPackageName.indexOf("ztbest") > -1){
+		return "ztbest";
 	}
 }
 
@@ -172,6 +177,9 @@ function switchType(type){
 			break;
 		case "fxzs":
 			path = packagePath+"/entdemo";
+			break;
+		case "ztbest":
+			path = packagePath+"/ztbest";
 			break;
 		default:
 			path = packagePath+"/wfx";
@@ -190,7 +198,7 @@ function modifyXML(type){
 }
 
 function afterModifyPackage(){
-	
+
 	modifyXML(choosedType);
 	transferLogo(choosedType);
 	transferWXFiles(choosedType);
@@ -201,6 +209,11 @@ function afterModifyPackage(){
 	var x = document.getElementById('result');
 	x.innerHTML = "类型"+choosedType+"--->完成！";
 	// alert("成功");
+}
+
+function clearA(){
+	var x = document.getElementById('result');
+	x.innerHTML = "";
 }
 
 function start(type){

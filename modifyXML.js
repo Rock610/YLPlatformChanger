@@ -39,12 +39,22 @@ var fxzsWeChatAppSec = "2a16942bdb36cb88936d7a722b42e180";
 var fxzsQQAppId = "1104728890";
 var fxzsQQAppKey = "ptI1dUncGODdHIaj";
 
+var ztbestShareSDKAppKey = "1a19aa2fd92e0";
+
+var ztbestWeiBoAppKey = "3076553655";
+var ztbestWeiBoAppSec = "13343f4914a52d692fc36788fd281a8b";
+
+var ztbestWeChatAppId = "wx8bc55314f1ac9c97";
+var ztbestWeChatAppSec = "b505936c3fad3c4bda0368a5797492bb";
+
+var ztbestQQAppId = "1104728890";
+var ztbestQQAppKey = "ptI1dUncGODdHIaj";
+
 //若多了一个供应商或其他版本 只需再创建一份类似以上变量名 命名方式为xxShareSDKAppKey,xx为供应商代号
 
 
 function modifyShareSDKXML(content,type){
 
-	
 	var doc = new DOMParser().parseFromString(content,"text/xml");
 	//getElementsByTagName 返回一个数组
 	doc.documentElement.getElementsByTagName("ShareSDK")[0].setAttribute("AppKey",eval(type+"ShareSDKAppKey"));
@@ -74,6 +84,7 @@ function modifyShareSDKXML(content,type){
 
     
     writeFile(shareSDKPath,doc);
+    // alert("modifyShareSDKXML end")
 	
 }
 

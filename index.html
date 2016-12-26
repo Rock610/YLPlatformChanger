@@ -6,6 +6,7 @@
 <script src = "file.js"></script>
 <script src = "modifyXML.js"></script>
 <script src = "config.js"></script>
+<script src = "pack.js"></script>
 
 
 <meta charset="UTF-8">
@@ -24,8 +25,29 @@
     切换成分销助手
   </button>
 
-  <p id = "result"></p>
+  <button name="ztbest" onclick=start("ztbest");>
+    切换成中通优选
+  </button>
 
+  <p id = "p"></p>
+
+  <button name="pack_debug" onclick=pack(1);>
+    打包debug
+  </button>
+
+  <button name="pack_release" onclick=pack(2);>
+    打包release
+  </button>
+
+  <button name="source_pack_script" onclick=chmodX();>
+    为脚本配置可执行属性
+  </button>
+
+  <button name="clear" onclick=clearA();>
+    清空log
+  </button>
+
+  <pre id = "result"></pre>
 
 </body>
 
