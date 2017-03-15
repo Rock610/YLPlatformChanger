@@ -42,41 +42,51 @@ function transferLogo(type){
 
 	var partOfPlatform = type+"_LOGO";
 
+	var xxxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxxhdpi/app_logo.png";
 	var xxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxhdpi/app_logo.png";
 	var xhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xhdpi/app_logo.png";
 
 
+	var xxxhdpiDst = drawablePath+"/drawable-xxxhdpi/app_logo.png";
 	var xxhdpiDst = drawablePath+"/drawable-xxhdpi/app_logo.png";
 	var xhdpiDst = drawablePath+"/drawable-xhdpi/app_logo.png";
 
-	copy(xxhdpiSrc,xxhdpiDst);
+	copy(xxxhdpiSrc,xxxhdpiDst);
 	copy(xhdpiSrc,xhdpiDst);
+	copy(xxhdpiSrc,xxhdpiDst);
 
 }
 
 function transferAppIcon(type){
 	var partOfPlatform = type+"_LOGO";
 
-	var xxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxhdpi/yl_launcher1.png";
 	var xhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xhdpi/yl_launcher1.png";
+	var xxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxhdpi/yl_launcher1.png";
+	var xxxhdpiSrc = imgPathSrc+"/"+partOfPlatform+"/xxxhdpi/yl_launcher1.png";
+
 
 
 	var xxhdpiDst = drawablePath+"/mipmap-xxhdpi/yl_launcher1.png";
 	var xhdpiDst = drawablePath+"/mipmap-xhdpi/yl_launcher1.png";
+	var xxxhdpiDst = drawablePath+"/mipmap-xxxhdpi/yl_launcher1.png";
 
 	var xxhdpiDstDrawable = drawablePath+"/drawable-xxhdpi/yl_launcher1.png";
 	var xhdpiDstDrawable = drawablePath+"/drawable-xhdpi/yl_launcher1.png";
+	var xxxhdpiDstDrawable = drawablePath+"/drawable-xxxhdpi/yl_launcher1.png";
 
 	copy(xxhdpiSrc,xxhdpiDst);
 	copy(xhdpiSrc,xhdpiDst);
+	copy(xxxhdpiSrc,xxxhdpiDst);
 
 	copy(xxhdpiSrc,xxhdpiDstDrawable);
 	copy(xhdpiSrc,xhdpiDstDrawable);
+	copy(xxxhdpiSrc,xxxhdpiDstDrawable);
 }
 
 
 //在modifyPackage之后调用
 function transferWXFiles(type){
+
 	var typePart;
 	var lastType = getLastType();
 	
@@ -86,12 +96,15 @@ function transferWXFiles(type){
 	oldPath = switchType(lastType);
 	newPath = switchType(type);
 
+	if(!existsSync(newPath)){
+		mkdir(newPath);
+	}
+
 	oldPath += "/wxapi";
 	newPath += "/wxapi";
 	
 	// var statsNew = fsStat(newPath);
 	try{
-
 		rename(oldPath,newPath);
 		
 		//结束后修改包名
@@ -126,6 +139,13 @@ function getReadLine(data) {
   	str = "APPLICATION_ID = "+getPackageName();
 
   }
+
+  if(str.indexOf("tencentAppID") > -1){
+
+  	str = "tencentAppID = "+ eval(choosedType+"QQAppId");
+
+  }
+
   str += "\n";
 
   gradlePropertiesContent += str;

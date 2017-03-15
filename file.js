@@ -58,7 +58,7 @@ function rmdirSync(path){
 }
 
 function existsSync(path){
-	fs.existsSync(path)
+	return fs.existsSync(path);
 }
 
 function fsStat(path){
@@ -94,6 +94,12 @@ function getAndroidManifestXML(){
 
 function copy(src, dst) {
     fs.createReadStream(src).pipe(fs.createWriteStream(dst));
+}
+
+function fileList(folder,callback){
+	fs.readdir(folder, (err, files) => {
+  		callback(err,files);
+	})
 }
 
 

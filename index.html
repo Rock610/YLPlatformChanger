@@ -39,6 +39,14 @@
     打包release
   </button>
 
+  <button name="patch" onclick=patch();>
+    生成补丁包
+  </button>
+
+  <button name="copyToOld" onclick=copyToOld();>
+    复制包到基准目录
+  </button>
+
   <button name="source_pack_script" onclick=chmodX();>
     为脚本配置可执行属性
   </button>
@@ -46,6 +54,14 @@
   <button name="clear" onclick=clearA();>
     清空log
   </button>
+
+  <!-- <button name="newStructure" onclick=newStructure();>
+    新结构
+  </button>
+
+  <button name="oldStructure" onclick=oldStructure();>
+    老结构
+  </button> -->
 
   <pre id = "result"></pre>
 

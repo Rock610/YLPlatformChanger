@@ -41,14 +41,14 @@ var fxzsQQAppKey = "ptI1dUncGODdHIaj";
 
 var ztbestShareSDKAppKey = "1a19aa2fd92e0";
 
-var ztbestWeiBoAppKey = "3076553655";
-var ztbestWeiBoAppSec = "13343f4914a52d692fc36788fd281a8b";
+var ztbestWeiBoAppKey = "1979644256";
+var ztbestWeiBoAppSec = "632c7c9a115dd4ecf182309189779457";
 
-var ztbestWeChatAppId = "wx8bc55314f1ac9c97";
-var ztbestWeChatAppSec = "b505936c3fad3c4bda0368a5797492bb";
+var ztbestWeChatAppId = "wx3c0af6ed7b234933";
+var ztbestWeChatAppSec = "bc23ff06fc9705d187c940a63d140f51";
 
-var ztbestQQAppId = "1104728890";
-var ztbestQQAppKey = "ptI1dUncGODdHIaj";
+var ztbestQQAppId = "1105939301";
+var ztbestQQAppKey = "KTu8UKktxbH9knad";
 
 //若多了一个供应商或其他版本 只需再创建一份类似以上变量名 命名方式为xxShareSDKAppKey,xx为供应商代号
 
