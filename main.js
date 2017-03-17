@@ -166,6 +166,9 @@ function getPackageName(){
 		case "ztbest":
 			packageName = "com.wdwd.ztbest";
 			break;
+		case "ent":
+			packageName = "com.wdwd.ent";
+			break;
   	}
 
   	return packageName;
@@ -188,6 +191,8 @@ function getLastType(){
 		return "fxzs";
 	}else if(lastPackageName.indexOf("ztbest") > -1){
 		return "ztbest";
+	}else if(lastPackageName.indexOf("ent") > -1){
+		return "ent";
 	}
 }
 
@@ -206,6 +211,9 @@ function switchType(type){
 			break;
 		case "ztbest":
 			path = packagePath+"/ztbest";
+			break;
+		case "ent":
+			path = packagePath + "/ent";
 			break;
 		default:
 			path = packagePath+"/wfx";

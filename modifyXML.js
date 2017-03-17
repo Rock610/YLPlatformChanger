@@ -39,6 +39,7 @@ var fxzsWeChatAppSec = "2a16942bdb36cb88936d7a722b42e180";
 var fxzsQQAppId = "1104728890";
 var fxzsQQAppKey = "ptI1dUncGODdHIaj";
 
+//中通优选
 var ztbestShareSDKAppKey = "1a19aa2fd92e0";
 
 var ztbestWeiBoAppKey = "1979644256";
@@ -49,6 +50,18 @@ var ztbestWeChatAppSec = "bc23ff06fc9705d187c940a63d140f51";
 
 var ztbestQQAppId = "1105939301";
 var ztbestQQAppKey = "KTu8UKktxbH9knad";
+
+//买卖助理
+var entShareSDKAppKey = "1c206fde97704";
+
+var entWeiBoAppKey = "1979644256";
+var entWeiBoAppSec = "632c7c9a115dd4ecf182309189779457";
+
+var entWeChatAppId = "wx3c0af6ed7b234933";
+var entWeChatAppSec = "bc23ff06fc9705d187c940a63d140f51";
+
+var entQQAppId = "1105939301";
+var entQQAppKey = "KTu8UKktxbH9knad";
 
 //若多了一个供应商或其他版本 只需再创建一份类似以上变量名 命名方式为xxShareSDKAppKey,xx为供应商代号
 
