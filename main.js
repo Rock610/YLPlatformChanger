@@ -123,13 +123,12 @@ function transferWXFiles(type){
 
 
 function modifyPackage(){
-
 	gradlePropertiesContent = "";
 	readGradlePropertiesLine(getReadLine,endRealLine);
 }
 
 function getReadLine(data) {
-  // alert(data);
+  
   var str = data.toString();
   if(str.indexOf("APPLICATION_ID") > -1){
   	
@@ -149,6 +148,7 @@ function getReadLine(data) {
   str += "\n";
 
   gradlePropertiesContent += str;
+
 }
 
 function getPackageName(){
@@ -166,8 +166,8 @@ function getPackageName(){
 		case "ztbest":
 			packageName = "com.wdwd.ztbest";
 			break;
-		case "ent":
-			packageName = "com.wdwd.ent";
+		case "enterprise":
+			packageName = "com.wdwd.enterprise";
 			break;
   	}
 
@@ -191,8 +191,8 @@ function getLastType(){
 		return "fxzs";
 	}else if(lastPackageName.indexOf("ztbest") > -1){
 		return "ztbest";
-	}else if(lastPackageName.indexOf("ent") > -1){
-		return "ent";
+	}else if(lastPackageName.indexOf("enterprise") > -1){
+		return "enterprise";
 	}
 }
 
@@ -212,8 +212,8 @@ function switchType(type){
 		case "ztbest":
 			path = packagePath+"/ztbest";
 			break;
-		case "ent":
-			path = packagePath + "/ent";
+		case "enterprise":
+			path = packagePath + "/enterprise";
 			break;
 		default:
 			path = packagePath+"/wfx";
@@ -232,7 +232,6 @@ function modifyXML(type){
 }
 
 function afterModifyPackage(){
-
 	modifyXML(choosedType);
 	transferLogo(choosedType);
 	transferWXFiles(choosedType);
