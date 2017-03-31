@@ -1,24 +1,37 @@
 
 var callfile = require('child_process'); 
 var exec = require('child_process').exec; 
+var pathReq = require('path');
 function chmodX(){
 	exec('chmod +x '+PACK_SCRIPT_DEBUG);
 	exec('chmod +x '+PACK_SCRIPT_RELEASE);
 }
 
+var assembleType;
+
 function pack(type){
 	var path = "";
 	var result = "";
+
+
 	switch (type){
 		case 1:
 			path = PACK_SCRIPT_DEBUG;//"/Users/rock/Desktop/assemble/newAssembleDebug.sh";
-			
+			assembleType = "Beta";
 			break;
 		case 2:
 			path = PACK_SCRIPT_RELEASE;//"/Users/rock/Desktop/assemble/newAssembleRelease.sh";
+			assembleType = "Release";
 			break;
 	}
 
+
+	modifyAssembleByType(path);
+	
+	// alert("打包完成");
+}
+
+function assemble(path){
 	var x = document.getElementById('result');
 	x.innerHTML = "开始打包...";
 
@@ -32,8 +45,57 @@ function pack(type){
 		x.innerHTML = result;
 		
 	})
+}
+
+var assembleScript;
+
+function modifyAssembleByType(path){
+	assembleScript = "";
+	readLineByPath(path,readAssembleScript,endRealAssembleScript);
+}
+
+function readAssembleScript(data){
 	
-	// alert("打包完成");
+	// alert("choosedType==>"+choosedType);
+	var str = data.toString();
+	var theChoosedType = choosedType?choosedType : "";
+	var warnElement = document.getElementById('warn');
+	warnElement.innerHTML = "";
+	
+	if(!choosedType){
+		warnElement.innerHTML = "警告: 未选择平台类型!打包将仍然继续!";
+	}
+
+	if(str.indexOf("[flavor]") > -1){
+		str = "./gradlew -Pmarket=config/market.txt clean apk"+theChoosedType+assembleType;
+	}
+	str += "\n";
+
+	assembleScript += str;
+}
+
+function endRealAssembleScript(){
+
+	if(!existsSync("./script")){
+		mkdir("./script");
+	}
+	try{
+		rmdirSync("./script/script.sh");
+	}catch(e){
+
+	}
+	
+
+	writeFileSync("./script/script.sh",assembleScript);
+
+	var abs = pathReq.resolve("./script/script.sh");
+
+	exec('chmod +x '+abs,(error, stdout, stderr) => {
+
+		assemble("./script/script.sh");
+  	});
+
+	
 }
 
 function patch(){

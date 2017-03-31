@@ -245,6 +245,8 @@ function afterModifyPackage(){
 }
 
 function clearA(){
+	var warnElement = document.getElementById('warn');
+	warnElement.innerHTML = "";
 	var x = document.getElementById('result');
 	x.innerHTML = "";
 }
