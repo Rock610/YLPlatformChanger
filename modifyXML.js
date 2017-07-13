@@ -63,6 +63,18 @@ var enterpriseWeChatAppSec = "539e80e9aa8b91f51d0b65d1e0abd743";
 var enterpriseQQAppId = "1106055248";
 var enterpriseQQAppKey = "gEOkDYeKmZpixBhT";
 
+//买卖助理
+var mengmengShareSDKAppKey = "1c206fde97704";
+
+var mengmengWeiBoAppKey = "116976825";
+var mengmengWeiBoAppSec = "d2d318d37dfafaffc2774b9a76c63014";
+
+var mengmengWeChatAppId = "wx6f4e2dd22dcca5c3";
+var mengmengWeChatAppSec = "539e80e9aa8b91f51d0b65d1e0abd743";
+
+var mengmengQQAppId = "1106055248";
+var mengmengQQAppKey = "gEOkDYeKmZpixBhT";
+
 //若多了一个供应商或其他版本 只需再创建一份类似以上变量名 命名方式为xxShareSDKAppKey,xx为供应商代号
 
 
@@ -70,7 +82,7 @@ function modifyShareSDKXML(content,type){
 
 	var doc = new DOMParser().parseFromString(content,"text/xml");
 	//getElementsByTagName 返回一个数组
-	doc.documentElement.getElementsByTagName("ShareSDK")[0].setAttribute("AppKey",eval(type+"ShareSDKAppKey"));
+	// doc.documentElement.getElementsByTagName("ShareSDK")[0].setAttribute("AppKey",eval(type+"ShareSDKAppKey"));
 
 	doc.documentElement.getElementsByTagName("SinaWeibo")[0].setAttribute("AppKey",eval(type+"WeiBoAppKey"));
 	doc.documentElement.getElementsByTagName("SinaWeibo")[0].setAttribute("AppSecret",eval(type+"WeiBoAppSec"));

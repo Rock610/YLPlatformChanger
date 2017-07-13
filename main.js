@@ -169,6 +169,9 @@ function getPackageName(){
 		case "enterprise":
 			packageName = "com.wdwd.enterprise";
 			break;
+		case "mengmeng":
+			packageName = "com.wdwd.mengmeng";
+			break;
   	}
 
   	return packageName;
@@ -193,6 +196,8 @@ function getLastType(){
 		return "ztbest";
 	}else if(lastPackageName.indexOf("enterprise") > -1){
 		return "enterprise";
+	}else if(lastPackageName.indexOf("mengmeng") > -1){
+		return "mengmeng";
 	}
 }
 
@@ -214,6 +219,9 @@ function switchType(type){
 			break;
 		case "enterprise":
 			path = packagePath + "/enterprise";
+			break;
+		case "mengmeng":
+			path = packagePath + "/mengmeng";
 			break;
 		default:
 			path = packagePath+"/wfx";
