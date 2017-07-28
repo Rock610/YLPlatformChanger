@@ -69,8 +69,8 @@ var mengmengShareSDKAppKey = "1c206fde97704";
 var mengmengWeiBoAppKey = "116976825";
 var mengmengWeiBoAppSec = "d2d318d37dfafaffc2774b9a76c63014";
 
-var mengmengWeChatAppId = "wx6f4e2dd22dcca5c3";
-var mengmengWeChatAppSec = "539e80e9aa8b91f51d0b65d1e0abd743";
+var mengmengWeChatAppId = "wx4d1b59a07ea88c0e";
+var mengmengWeChatAppSec = "af328a5f5274cff9144c5fec3117b250";
 
 var mengmengQQAppId = "1106055248";
 var mengmengQQAppKey = "gEOkDYeKmZpixBhT";
